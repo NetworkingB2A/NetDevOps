@@ -44,8 +44,11 @@ What is an object?
 A object is two things
 - Attributes
   - data about a object
+  - Can have private or public attributes
 - Methods
   - What a object can really do
+  - Can have private or public methods
+
 
 
 ### Attributes
@@ -161,6 +164,24 @@ class Person:
 \>>> adam=Person(6,250,"Male")  
 \>>> print(adam)  
 I am a person, I am 6 ft tall, I weigh 250 lbs. I am also a Male   
+
+
+### Private Membership
+With python you can only say that a attribute or method is private. you can't really block the use of the private member from public use.  
+You would put an underscore in front of a private member to signify that the user of your app should not use this member. That this member should only be used for inside the app
+
+### Property Decorator
+
+What is a decorator in python?  
+A decorator is a function in python that takes another function as its argument and returns yet another function. Decorators can be extremely useful as they allow the extension of an existing function, without the modification to the original function source code.
+
+What is a property decorator in python?  
+@property decorator is a built-in decorator in Python which is helpful in defining the properties effortlessly without manually calling the inbuilt function property(). Which is used to return the property attributes of a class from the stated getter, setter and deleter as parameters.  
+
+This whole concept starts to get hard to explain without examples. see the sample code with the student class.
+
+### Static Methods
+A static method can not change the instance or the class. Its more of a function. You could create that same function outside of you class, but creating this will allow you to always have the method to use whenever you want.
 
 
 Best practices
