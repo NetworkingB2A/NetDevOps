@@ -183,6 +183,9 @@ This whole concept starts to get hard to explain without examples. see the sampl
 ### Static Methods
 A static method can not change the instance or the class. Its more of a function. You could create that same function outside of you class, but creating this will allow you to always have the method to use whenever you want.
 
+### Class Methods
+
+### Inheritance 
 
 Best practices
 - Use uppercase letters for a class name

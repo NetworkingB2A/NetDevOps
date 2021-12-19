@@ -19,6 +19,10 @@ class Person:
 
 
 
+
+
+
+
 class Friends:
     members=['Ross', "Phoebe", 'Chandler', 'Joey', 'Monica', "Rachel"]
     def __len__(self):
@@ -75,6 +79,62 @@ class StudentGrade:
   @staticmethod
   def random_grade():
       return StudentGrade(random.choice(grades))
+
+
+class Human:
+      _needs = ["air", "water", "food"]
+      def __init__(self, name):
+            self._name = name
+      @classmethod
+      def needs(cls):
+            return cls._needs
+
+
+
+
+class Fashion:
+      
+      def __init__(self, style):
+            self.style = style
+
+      @classmethod
+      def funky(cls):
+            return cls(["bellbottoms", "flowery shirt", "big boots"])
+      
+      @classmethod
+      def gothic(cls):
+            return cls(["trenchcoat", "leather jacket", "doc martin boots"])
+          
+      @classmethod
+      def casual(cls):
+            return cls(["t-shirt", "jeans", "sneakers"])
+
+#  In [11]: dad_clothes = Fashion(["short shorts", "long tube socks", "sun glasses"])                                  
+#  
+#  In [12]: dad_clothes.style                                                                                          
+#  Out[12]: ['short shorts', 'long tube socks', 'sun glasses']
+#  
+#  In [13]: temp = Fashion.funky()                                                                                     
+#  
+#  In [14]: temp.style                                                                                                 
+#  Out[14]: ['bellbottoms', 'flowery shirt', 'big boots']
+
+
+class Dog():
+      def __init__(self, name, age):
+            self.name = name
+            self.age = age
+
+      def sounds(self):
+            return "WOOF!"
+            
+class Lab(Dog):
+      def __init__(self, name, age):
+          super().__init__(name, age)
+
+      def breathing(self):
+            return "Panting"
+            
 
 
 
