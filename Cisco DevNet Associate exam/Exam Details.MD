@@ -7,6 +7,7 @@
 Section 1 - Software development and design
 - Data formats
 - Parsing data
+- Software development methods
 - Advantages of version control
 - Utilize Git
 
@@ -49,7 +50,6 @@ Section 6- Network fundamentals
 ### Items I have no idea
 Section 1 - Software development and design
 - Concepts of test-driven development
-- Software development methods
 - Benefits of organizing code
 - Advantages of common design
 
