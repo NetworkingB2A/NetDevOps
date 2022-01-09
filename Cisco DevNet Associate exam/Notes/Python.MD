@@ -8,6 +8,23 @@ You can use  <code>  help (module-name) </code> to find out how to use a module.
 
 If you want to avoid doing a bunch of escape characters you can us the use a raw string. 
 
+## list methods
+|Method|What it does|
+|-|-|
+| list.append(element) | Add an element to the end of the list |
+| list.clear() | Removes everything from the list |
+| list.copy() | Returns a copy of the list. This would be useful when you want to copy the list and you dont just want to create a pointer to the old list. | 
+| list.count(element) | shows the number of the elements with the specified value | 
+| list.extend(alist) | adds the element of a list to the end of the current list |
+| list.index() | Returns the index number of the fist element with a specified value | 
+| list.insert(index, element) | Adds and element at a specified index value |
+| list.pop(index) | Removes an element at a specific index position, or if not index position is provided, removes the last item on the list | 
+| list.remove() | Removes a list item witha  specified value | 
+| list.reverse() | Reverses the list order | 
+| list.sort() | sorts the list alphabetically | 
+
+## Set notes
+
 <code>\_\_name__</code> Specially named variable allowing us to detect whether a module is run as a script or imported into anther module.
 When you call the module while in a python interpreter, the name of the module will print out. when you call the module from a bash shell, the name \_\_main__ will print out. 
 
