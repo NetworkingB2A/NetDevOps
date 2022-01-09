@@ -8,6 +8,7 @@ Section 1 - Software development and design
 - Data formats
 - Parsing data
 - Software development methods
+- Advantages of common design patterns
 - Advantages of version control
 - Utilize Git
 
@@ -51,7 +52,7 @@ Section 6- Network fundamentals
 Section 1 - Software development and design
 - Concepts of test-driven development
 - Benefits of organizing code
-- Advantages of common design
+
 
 Section 2 - Understanding and using APIs
 - Describe common usage patterns related to webhooks

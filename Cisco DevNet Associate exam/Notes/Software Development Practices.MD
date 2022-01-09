@@ -74,6 +74,7 @@ ISBN-13: 978:021633610
 A pattern where dependent objects are updated or modified by one or more subject objects
 - Allows objects to react or respond in response to events.
 - Popular in UI systems
+- The observer pattern is often used to handle communication between the model and the view in the MVC pattern.
 
 Two classes defined by observer pattern:
 - Subject - Which maintains a list of observers and includes methods for attaching, detaching, and notifying observers.
@@ -81,7 +82,9 @@ Two classes defined by observer pattern:
 - Example code view Sample code/observer.py
 
 ### Model, View, Controller (MVC)
-A high-level abstraction where responsibilities are divided up into three loosely coupled components.
-- Model: The component that stores the data
-- View: The component that displays data
+A high-level abstraction where responsibilities are divided up into three loosely coupled components. This design type is often used in web development.
+- Model: The component that retrieves and manipulates the data. Often tied to a database.
+- View: The component that displays data. It's what the end users see on their devices. 
 - Controller: The component that handles logic flow, user interaction, and directs models and views.
+
+Conducting code reviews
