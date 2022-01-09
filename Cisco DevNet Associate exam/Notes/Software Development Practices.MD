@@ -87,4 +87,14 @@ A high-level abstraction where responsibilities are divided up into three loosel
 - View: The component that displays data. It's what the end users see on their devices. 
 - Controller: The component that handles logic flow, user interaction, and directs models and views.
 
-Conducting code reviews
+# Conducting code reviews
+Some benefits for a code review
+- It helps you create higher-quality software.
+- It enables your team to be more cohesive and deliver software projects on time.
+- It can help you find defects and inefficient code.
+
+Some good practices for code review
+- Use a code review checklist. Make sure you are following your organization standards.
+- Review the code not the person.
+- Check your ego at the door. Remember people are not reviewing you they are just looking at your code.
+- make sure your complete the recommendation and your check those back into the repo.
