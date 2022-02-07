@@ -138,6 +138,20 @@ Webhooks are user-defined HTTP callbacks. Also called reverse APIs. When you wan
 ngrok is a free tool that you can use to test out your webhooks.
 
 
+### REST Constraints
+REST defines six architectural constraints that make any web service a truly RESTful API. These are the REST constraints:
+- Client/server
+  - A client must know the URIs on the server
+  - The interaction is where the client initiates requests to the server and the server sends back responses.
+- Stateless
+  - REST services must be stateless.
+  - Each individual request contains all the information that the server needs to preform the request
+  - A stateless service is easy to scale horizontally, allowing for additional service to be added or removed as necessary.
+- Cache
+- Uniform interface
+- layered system
+- code on demand
+
 ## Simple Object Access Protocol (SOAP)
 - SOAP is used to access web services.
 - SOAP can use SMTP or HTTP as a transport protocol. SOAP is used to to exchange data between applications that were build on different programming languages.
