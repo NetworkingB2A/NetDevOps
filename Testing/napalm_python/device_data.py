@@ -12,7 +12,7 @@ device = driver(
 print("Opening ...")
 device.open()
 
-pprint(device.get_interfaces_ip())
+pprint(device.get_users())
 #with driver('localhost', 'vagrant', 'vagrant', optional_args={'port': 12443}) as device:
 #    print(device.get_facts())
 #    print(device.get_interfaces_counters())

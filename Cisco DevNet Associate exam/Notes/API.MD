@@ -146,11 +146,58 @@ REST defines six architectural constraints that make any web service a truly RES
 - Stateless
   - REST services must be stateless.
   - Each individual request contains all the information that the server needs to preform the request
+  - The URI identifies the resource, and the body contains the stat of the resource.
   - A stateless service is easy to scale horizontally, allowing for additional service to be added or removed as necessary.
 - Cache
+  - Response data must be implicitly or explicitly labeled as cacheable or non-cachable. 
+  - Cashing helps to improve the performance of the client side, and helps with scalability of the server.
 - Uniform interface
+  - Identification of resources
+    - These identifiers are stable and do not change across interactions.
+  - Manipulation of resources through representations
+  - Self-descriptive messages
+  - Hypermedia as the engine of application state
 - layered system
+  - This is the idea that there can be more systems involved than just the client and server.
+  - some examples include proxies, load balancers, and so on.
 - code on demand
+  - This is optional.
+  - Sometimes the response can hand back a bit a code that the client can execute.
+
+
+### REST API Versioning 
+There are a few different ways to approach API versioning. Versioning is important because if allows the devs to make changes and update APIs without impacting a customers workflow.  
+Different techniques include
+- URI path versioning
+- Query parameter versioning
+- Custom headers
+- Content negotiation
+  - This way allows you to version a single resource rather then the whole API.
+
+
+### Pagination
+What is pagination?
+- instead of all one api call to return all the data in one page, you need to break up that data for a better user experience. 
+- There are two popular approaches to pagination
+  - offset-based pagination
+    - when you set a offset number you are saying which device number you wan to start at.
+    - when you set a limit level you say the number of devices you want to receive back.
+    - example
+      - you have a list of 200 devices. you set an offset of 75 and a limit of 25
+      - with out the offset and limit, you would get all 200 devices back. with the offset and limit you would get devices 75 - 100 back
+  - keyset-based pagination
+
+### Rate limiting and monetization
+Why do you need rate limiting?
+-  This need to happen to help with security, business impact and efficiency of the application.
+   -  Security
+   -  Business impact
+   -  Efficiency
+Some tips for rate limiting on the client side.
+- Avoid constant polling by using webhook to trigger updates.
+- Cache your own data when you need to store specialized values or rapidly review very large data sets.
+- Query with special filters to avoid re-polling unmodified data.
+- Download data during off-peak hours.
 
 ## Simple Object Access Protocol (SOAP)
 - SOAP is used to access web services.
