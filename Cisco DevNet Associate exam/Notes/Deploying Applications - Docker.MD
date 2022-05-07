@@ -67,3 +67,24 @@ Actually building a docker file
 - Create the docker file
 - run the following command "docker build  -t dockerfile:latest ."
 - run the docker container with the following command "docker run -d -p 5000:5000  dockerfile"
+
+Here is an example of a simple dockerfile  
+<code>
+FROM ubuntu:18.04  
+MAINTAINER Adam Angell  
+RUN apt-get update -y && apt-get install -y   python3-pip python3-dev  
+CMD [ "ufw allow 5000" ]  
+COPY ./requirements.txt /app/requirements.txt  
+WORKDIR /app  
+RUN pip3 install -r requirements.txt  
+COPY  ./myAPI.py /app  
+ENTRYPOINT [ "python3" ]  
+CMD [ "myAPI.py" ]  
+</code>
+
+
+Steps to add container to the dockerhub  
+<code> 
+docker tag "image ID"  "name of dockerhub repo":latest  
+docker push "name of dockerhub repo"
+</code>

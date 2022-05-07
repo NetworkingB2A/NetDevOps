@@ -1,3 +1,9 @@
+Different data types
+- Transit
+- Rest
+
+
+
 Some Key terms to understand for security:
 - Asset: An asset is something you're trying to protect.
 - Threat: Anything you are trying to project against is known aas a threat. 

@@ -186,3 +186,6 @@ A static method can not change the instance or the class. Its more of a function
 Best practices
 - Use uppercase letters for a class name
 - Use self as the first positional argument. You could use others besides self, but don't do it. just use self.
+
+Environment variables within python
+- You can create .env file and add your environmental variables there instead of putting them in a .bash file or putting them in your OS specific env files. You will need to pip install and import a module call "dotenv"
