@@ -7,6 +7,21 @@ NETCONF = Network Configuration Protocol
 NETCONF is just the connection and configuration protocol to a network device. If you need to send actual data, this is where YANG (Yet another next generation) steps in. With YANG you have a way to format your device data that you can push to your end devices.  
 NETCONF uses SSH as its communication layer. It uses a client server model.  
 Messages send with NETCONf use RPCs.
+- When you stat an Message with a manager and an agent, The manager will send a RPC message with a unique ID. That unique ID will need to be in the REC-Reply in order for the manager to know that the agent and manager are talking about the same task.
+- Here is a copy of the netconf protocol stack
+![Netconf Protocol Stack](../../images/netconf-protocol-stack.png)
+- Here is a sample of the NETCONf communications
+1. Connect to device and say hello (Manager > Agent)
+2. Retrieve capabilities (Manager < Agent)
+3. Investigate abailable models, determine which to use
+4. Compose operation get-config 
+5. send message rpc (Manager > Agent)
+6. Retrieve RPC-Reply (Manager < Agent)
+7. Process data
+
+
+
+
 
 ### NETCONF Operations
 | Operation | Description | 
@@ -26,6 +41,12 @@ The NETCONF \<edit-config> operations supports several attributes
 - replace
 - create
 - delete
+
+### Python with NETCONF
+- When using netconf inside of python you need to use ncclient. You will need to import manger module. This module will be used to connect to the device.
+- You will often need to find out what capabilities the agent can support. There are a few different ways to accomplish this. One way is by pulling the data from the agent itself. The problem here is that the data you get back might be hard to read. Another option will be to go to the vendors website and read about it. This is my preferred method.
+- Interface container will allow you configure the device or gather data about the config. The interface-state container will tell you stats about the interface.
+- You will also likely want to use another module called "xmltodict" This does exactly what it says. converts xml to a dictionary. 
 
 ## YANG
 YANG = Yet another next generation
