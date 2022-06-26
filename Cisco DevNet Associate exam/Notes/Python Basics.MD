@@ -53,7 +53,7 @@ What is a set?
 
 
 
-### Function Notes
+## Function Notes
 Basic function rules
 - Must not start with a number
 - Must not be a reserved Python word, or a name that has already been used as a function or variable.
@@ -99,4 +99,46 @@ else:
     print ("this is false")
 
 
+## Logging
+logging module built into python. No need to install anything special.
 
+Link to the python documentation.
+https://docs.python.org/3/library/logging.html
+
+
+### Why use logging vs print?
+Logging will allow you to capture additional data about the running of your code. It will give you flexibility as to how you capture your logs. Print only allow very basic capturing of your logging.
+
+
+
+### logging levels
+| Level | Numeric value | Description
+|-|-|-|
+|CRITICAL| 50| A serious error, indicating that the program itself may be unable to continue running.|
+|ERROR| 40| Due to a more serious problem, the software has not been able to perform some function.|
+|WARNING| 30| An indication that something unexpected happened, or indicative of some problem in the near future. |The software is still working as expected. This is the default level for the logging module.
+|INFO |20| Confirmation that things are working as expected|
+|DEBUG| 10| Detailed information, typically of interest only when diagnosing problems. When this is used it works a lot like the print statement and displays basic data to the screen. |
+|NONSET| 0||
+
+### More advanced logging
+If you default to the root logging and you decide to import a different module that also has a root logger, the root logger of the imported class will actually do the logging and the logger you have in your main code down below will not be called, because you already have a root logger called.
+Example of best practice code
+
+using the \_\_name__ will pass the name of the module you are running into the logger, this will replace the word root in the logger.
+<code>
+import logging
+logger = logging.getLogger(\_\_name__)
+
+#You would use this next part if you want to customize your logger a bit more. This will allow you to change the root logger info.
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s:%(message)s')
+file_handler = logging.FileHandler('runbook_logging/testlog2.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+</code>
+You can also do a logging.exception inside a try/except block to log the traceback errors.
+
+If you want this logging to show up on your console window you can use a stream Handler.
