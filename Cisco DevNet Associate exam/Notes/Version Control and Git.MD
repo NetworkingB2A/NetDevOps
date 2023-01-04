@@ -116,6 +116,10 @@ git move
   - git mv (-f) {source} {destination}
   - This will move a file from one location to another location.
   - When you use this command you will not need to git add to add the file to a staging area.
+git stash {parameters}
+- temporarily store modified tracked files
+- This is a good way to store your files quickly without doing a git commit.
+- git stash pop brings your files back to the main workspace for you.
 
 
 What is a Branch?
@@ -143,6 +147,7 @@ git merge
     - Target branch - The branch of where the changes are being pulled from
     - Receiving branch - The branch where your changes are being pulled into.
   - Conflicts in file changes need to be resolved manually
+  - You will often use a git merge and git fetch together.
 
   Fast forward merge
           --0--0--0 <- master branch
@@ -161,12 +166,15 @@ git clone "hyperlink"
    - this is copy a git repository to your computer
 
 git pull
-  - this will pull the updates from a online repository to your local repository.
+  - this will pull the updates from a online repository branch to your local repository and merge the branch.
 
 git pull request
   - This one messed with my head for a while, the following is the best way I think to explain it
   - if you make a change to someone else's source code and you want that change to be in the source code you submit a pull request.
   - Meaning you are asking them to pull your changes into their code.
+
+git remote {parameters}
+- Manage remote repositories.
 
 
 
@@ -181,10 +189,14 @@ git branch
  - This actual code will show the branches i have, or i can create and delete my branches 
 
 
-
-git pull vs get fetch 
-  - I dont really know yet.
+git fetch 
+  - Fetches changes from the remote repository.
+  - Fetch will be used to get the remote branches
+  - Fetch will get changes and store them in your local repository, a git pull will merge those changes
 
 The only two reasons i would use this next part is
   - because I dont want to log into the gui
   - I want to change my repository name
+
+Glossary
+Repository is a directory that is initalized with git. It is where a all your files are stored.

@@ -18,12 +18,19 @@ SDLC is a generic process. The following is the overall stages
 ### Waterfall
 Waterfall is the older way of designing code. This method follows the SDLC down to a T. The problem is that you do not deliver a product until it is completed. You may spend years writing the code before ever pushing the code into production. if you are halfway done writting the code, you still have delivered 0 product.  
 Waterfall does not handle changes well at all. If need to make a change during the coding phase, that might mean you need to take a step backwards and move back into planning.  
-Three major challanges for waterfall include
+Advantages:
+- Design errors are highlighted before any code is written
+- Good documentation is mandatory for this kind of methodology
+Three major challenges for waterfall include
 - The serial nature of waterfall
 - Value is not achieved until the end
-- Quality can often suffer
+- Quality can often suffer. Re-engineering the applications can be very costly.
 
 ### Lean
+According to the lean pioneers, an enterprise must focus on three major points to fully embrace the lean philosophy.
+- Purpose
+- Process
+- People
 Three main goals for the lean method
 - Elimination of waste
   - if something doesn't add value to the final product. Get rid of it
@@ -50,6 +57,61 @@ The Agile Manifesto
 - The best architectures, requirements, and designs emerge from self-organizing teams.
 - A team regularly reflects on how to become more effective and adjusts accordingly.
 
+## Test-Driven Development
+
+
+### Test-Driven Development(TDD)
+Developing test before writing code seems backwards but it is a standard when writing code.  
+If you write test first you can avoid some unnecessary bug chasing.  
+The five steps of TTD
+1. Write tests
+2. Test fails
+3. Write code
+4. Test passes
+5. Refactor
+
+Robust tests are very important, as they will help you discover the edge cases.
+Refactoring your code is important, here are some reasons why
+- Better code structure
+- Better code readability
+- Better design
+
+### Unit testing
+Unit testing is the idea of testing out very small parts of your code. The idea is that if you test out every small part of code and that failure happens, you can quickly take a look. Where if you test out all the code at one time, you may need to test to run for 10-20 minutes before the failure happens. running that over and over again could take hours.
+
+There are three types of testing
+- Unit testing
+  - This is to test out very small bits of your code.
+- Integration tests
+  - This is to find how your application can work with other applications. 
+- Function test
+  - This test will do full end to end testing. Testing everything. This will be the longest phase of your testing.
+
+When creating unit test its a good idea to create your test using the OOB principles.  
+Another good idea is to name your test at "test_testmodulename".  
+You will need to import unittest and when creating your class you will need to inherit unittest.Testcase from the unittest module.  
+If you want to run your test make sure to add the following to your code.
+- <code> if \_\_name\_\_ =='\_\_main\_\_':  
+&nbsp;&nbsp;&nbsp;&nbsp;unittest.main() </code>
+
+** NOTE go to the following site to learn more info about unit test.  
+https://docs.python.org/3/library/unittest.html
+
+
+Some tools for TDD and unit testing
+- pyats
+- unittest
+
+## Code review 
+Code review is a way to have other developers look at your code for verification. Some facets for what other developers will be looking for include 
+- identify bugs
+  - This is the most important part of the code review
+- Improve code quality
+- make sure standards are being followed
+- allows others to be familiar with other parts of the project
+
+Often multiple people are assigned to perform a code review. It is best to verify smaller bits of code, in order to keep it more manageable.
+
 # Design Patterns
 ## Understanding Design patterns
 
@@ -59,7 +121,49 @@ take a look at the following book:
 Design patterns: element of reusable object-oriented software
 ISBN-13: 978:021633610
 
-## Different design patterns
+## Unified Modeling Language
+Unified modeling language (UML) was created because programming languages are usually not at a high level of abstraction. UML helps software designers look at a UML glass diagram and understand better how the application is suppose to function.
+![UML Diagram](../../images/UML%20diagram.png)
+
+
+## Architecture patterns
+Some of the commonly known software architecture patterns:
+- Layered or multitier architecture pattern
+  - This is broken up almost like an org chart.
+  - There is no rule as to how many layers you can help, but often you will find 4 layers
+    - Presentation layer
+      - User interface communication
+    - Business layer
+      - Business rules processing
+    - Persistence layer
+      - Data persistence handling
+    - Database layer
+      - Database storage technology
+  - You should not skip or jump layers, if a request starts at the presentation layer it must go through business and persistence to get to the database layer.
+  - if for some reason you did need a special layer that is optional to use or not, you would create an <i> open-type layer</i>
+  - each layer should be designed independently 
+- Event-driven architecture pattern
+- Microservices architecture pattern
+- Model-View-Controller (MVC) architecture pattern
+- Space-based architecture
+
+## Software Design Patterns
+There are many software design patterns, and you should pick out the correct one for your application. There are three groups in which patterns are divided into. 
+- Creational
+  - concerned with the class or object creation mechanism
+- Structural
+  - deals with class or object compositions for maintaining flexibility in larger projects
+- Behavioral
+  - describes the ways of interaction between classes and objects.
+
+| Creational patterns | Structural patterns | Behavioral Patterns |
+|-|-|-|
+| Singleton | Adapter | Observer |
+| Abstract Factory | Decorator | Interpreter |
+| Prototype | Facade | Mediator | 
+| Factory Method | Proxy | State|
+
+
 ### Singleton Design pattern
 ![Singleton Design pattern](../../images/Singleton%20Design.png)
 
@@ -87,6 +191,24 @@ A high-level abstraction where responsibilities are divided up into three loosel
 - View: The component that displays data. It's what the end users see on their devices. 
 - Controller: The component that handles logic flow, user interaction, and directs models and views.
 
+Benefits of the MVC pattern:
+- Separation of concern
+- Multiple views to the same model
+- Flexible presentations changes
+- Independent testing of components
+- Pluggable components
+
+Downsides of the MVC pattern:
+- Increased complexity
+- Excessive number of change notifications
+- View and controller tight coupling
+- Separate controller is sometimes not needed
+
+Good to know
+- There is typically one controller for each view. 
+- One of the primary features of MVC architecture is the separation between the view and the model. This is very important design principle.
+- The relationship between the view and a controller is an example of the strategy design pattern.
+
 # Conducting code reviews
 Some benefits for a code review
 - It helps you create higher-quality software.
@@ -98,3 +220,25 @@ Some good practices for code review
 - Review the code not the person.
 - Check your ego at the door. Remember people are not reviewing you they are just looking at your code.
 - make sure your complete the recommendation and your check those back into the repo.
+
+
+# Other Notes
+Cohesion and loosely coupled 
+Here are some design guidelines to consider:
+- Acyclic dependencies principle
+- Stable dependencies principle
+- Single responsibility principle
+
+The concepts that define what OOP enables:
+- Abstraction
+- Encapsulation
+- Inheritance
+- Polymorphism
+
+A decision on software architecture can be made while studying these characteristics of a system:
+- Performance
+- Availability
+- Modifiability
+- Testability
+- Usability
+- Security

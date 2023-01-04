@@ -27,6 +27,7 @@ There are four main functions you will use when working with Python and JSON.
 - load() : This allows you to import native JSON and converts it to a Python dictionary from a file.
 - loads() : This will import JSON from a string for parsing and manipulating within your program.
 - dump() : This is used to write JSON data from Python object to a file. You would use this to produce more machine readable code.
+  - You can set dump ( sort_keys = True, indent = 4) and this will also make your output more readable.
 - dumps() : This allows you to take JSON dictionary data and convert it into a serialized string for parsing and manipulating with Python. You would use this this to have the output be more human readable.
 ### Extensible Markup Language (XML)
 XML works hand and hand in HTML.  
@@ -37,6 +38,23 @@ XML is one of the more difficult markup languages to learn.
 You can use xmltodict in Python to help you work with the XML data.  
 You can also use the XML unparse function to make the data easier to read.
 White space does not matter here.
+#### XML Namespaces
+XML is very popular and has been used on the internet for many years. You will likely run into an issue were you have two different systems that have the same tag names but they represent different data. This is where XML namespaces and prefixes comes into play.
+A prefix is an alphabetic character or a string put before the actual tag name followed by a colon.
+
+when using XML prefixes you also need to make sure you define namespaces for those prefixes. the name of a namespace is a URI. Namespaces are defined with the xmlns attribute in the starting tag.
+<a:table>
+  <a:tr>
+    <a:td>router</a:td>
+    <a:td>switch</a:td>
+  </a:tr>
+</a:table>
+<b:table>
+  <b:tablerow>
+    <b:tabledata>router</b:tabledata>
+    <b:tabledata>bananas</b:tabledata>
+  </b:tablerow>
+</b:table>
 ### YAML Ain't Markup Language (YAML)
 YAML is a popular human-readable format for constructing configuration files.
 Tools like Ansible use YAML files everywhere.

@@ -1,37 +1,6 @@
 ## Error Handling in Python
  I need to find better documentation than the book
 
-### Test-Driven Development(TDD)
-Developing test before writing code seems backwards but it is a standard when writing code.  
-If you write test first you can avoid some unnecessary bug chasing.  
-The five steps of TTD
-1. Write tests
-2. Test fails
-3. Write code
-4. Test passes
-5. Refactor
-
-### Unit testing
-Unit testing is the idea of testing out very small parts of your code. The idea is that if you test out every small part of code and that failure happens, you can quickly take a look. Where if you test out all the code at one time, you may need to test to run for 10-20 minutes before the failure happens. running that over and over again could take hours.
-
-There are three types of testing
-- Unit testing
-  - This is to test out very small bits of your code.
-- Integration tests
-  - This is to find how your application can work with other applications. 
-- Function test
-  - This test will do full end to end testing. Testing everything. This will be the longest phase of your testing.
-
-When creating unit test its a good idea to create your test using the OOB principles.  
-Another good idea is to name your test at "test_testmodulename".  
-You will need to import unittest and when creating your class you will need to inherit unittest.Testcase from the unittest module.  
-If you want to run your test make sure to add the following to your code.
-- <code> if \_\_name\_\_ =='\_\_main\_\_':  
-&nbsp;&nbsp;&nbsp;&nbsp;unittest.main() </code>
-
-** NOTE go to the following site to learn more info about unit test.  
-https://docs.python.org/3/library/unittest.html
-
 ## Classes
 What is an object?
 A object is two things
@@ -45,7 +14,9 @@ A object is two things
 
 NOTE extra learning for classes
 To learn more about classes, methods, and inheritance, you can refer to the Python documentation. https://docs.python.org/3/tutorial/classes.html
-
+if you would to to find out more about a module or the methods use the following commands.
+- help(module) or help(module.function)
+- dir(module)
 
 ### Attributes
 Class Attributes

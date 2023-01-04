@@ -25,9 +25,13 @@ nornir: This is an extendable, multithreaded framework with inventory management
 
 Genie (PYATS)
 
-xmltodict
+xmltodict << These two are more generally used because of their ease of use.
+untangle
+minidom
+ElementTree << These two are more generally used because of their ease of use.
 
 pyyaml
+ruamel.yaml << Currently this one is newer and better maintained.
 
 pyang
 

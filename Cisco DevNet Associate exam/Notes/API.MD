@@ -225,5 +225,7 @@ Some tips for rate limiting on the client side.
 RPC is used to execute code or a program on a remote node in a network.
 
 
+## Random notes
+One important bit of info to keep in mind, when using API testing them in code is very important. you don't want to troubleshoot code you created for a long time. testing you API calls will be very important troubleshooting step.
 
 

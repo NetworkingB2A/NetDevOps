@@ -4,6 +4,10 @@ You can style you code with different types of standards. Two of the most popula
 
 The zen of python is the commandments of python. it can be accessed by typing <code> import this </code> in a python interpreter. 
 
+### Serialization and deserialization of data
+Serialization and deserialization is the idea of taking data and trasforming so tech can exchange the data better. one example from your day to day life would include a phones call. you talk a person your phone will transform or serialize your spoken words into bits that can then be passed from phone to phone. the other phone will deserialize the data, transforming it from bits back into spoken words.
+In computer science one example would be take a data sctructure or objects and transforming it into an data that a programming laguage can handle better. example taking a set of JSON data and converting it dictionary and lists for python to use.
+
 You can use  <code>  help (module-name) </code> to find out how to use a module.
 
 If you want to avoid doing a bunch of escape characters you can us the use a raw string. 
@@ -12,21 +16,22 @@ If you want to avoid doing a bunch of escape characters you can us the use a raw
 Parts of a python program
 Modules
 - Modules are really just a piece code that you import into your program. everything you import is a module.
+- modules contain functions, classes, global variables, ect
 - Why use modules
   - Easier readability/maintainability
   - Low coupling/high cohesion
     - Modules should written in such a way that they do not have any interdependencies. 
   - Code reusability
   - Collaboration
-functions
-classes
-methods
 
-if you would to to find out more about a module or the methods use the following commands.
-- help(module) or help(module.function)
-- dir(module)
+Functions
+- Fuctions are used when you find yourself using the same code over and over again. It is often a good idea to put that code into a function so you dont have to copy paste the code
+Classes
+- Classes is a construct that is used in OOP.
+- This is generally though of a way to define and interact with an object.
+- Often referred to as a blueprint
 
-
+One important feature of python is that amount of built in libraries and the amount of open source libraries that have been written out in the community. To view a list of all the built-in libraries for python go to https://docs.python.org/3/library
 
 ## list methods
 |Method|What it does|
