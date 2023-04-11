@@ -57,7 +57,17 @@ The Agile Manifesto
 - The best architectures, requirements, and designs emerge from self-organizing teams.
 - A team regularly reflects on how to become more effective and adjusts accordingly.
 
-## Test-Driven Development
+## Software testing
+
+There are different types of testing
+- Unit testing
+  - This is to test out very small bits of your code.
+- Integration tests
+  - This is to find how your application can work with other applications. 
+- Function test or system testing
+  - This test will do full end to end testing. Testing everything. This will be the longest phase of your testing.
+- Acceptance testing
+  - Test if the system is read for delivery.
 
 
 ### Test-Driven Development(TDD)
@@ -79,13 +89,19 @@ Refactoring your code is important, here are some reasons why
 ### Unit testing
 Unit testing is the idea of testing out very small parts of your code. The idea is that if you test out every small part of code and that failure happens, you can quickly take a look. Where if you test out all the code at one time, you may need to test to run for 10-20 minutes before the failure happens. running that over and over again could take hours.
 
-There are three types of testing
-- Unit testing
-  - This is to test out very small bits of your code.
-- Integration tests
-  - This is to find how your application can work with other applications. 
-- Function test
-  - This test will do full end to end testing. Testing everything. This will be the longest phase of your testing.
+Good unit tests should have the following characteristics
+- Reliable
+- Isolated
+- Fast
+- Readable
+
+Tested units usually have dependencies to other parts of the system, in order to isolate your unit tests you may need to create a test double. Test doubles is a object that mimics some aspects or functionality of some other object. Types of test doubles include:
+- Fake
+- Stub
+- Mock
+- Dummy
+- Spy
+
 
 When creating unit test its a good idea to create your test using the OOB principles.  
 Another good idea is to name your test at "test_testmodulename".  
@@ -101,6 +117,44 @@ https://docs.python.org/3/library/unittest.html
 Some tools for TDD and unit testing
 - pyats
 - unittest
+### Integration testing
+This is the idea of testing units of code with their necessary integrations. A couple different approaches include
+- Big bang approach
+- Incremental approach
+  - Three different directions
+    - Top-down approach
+    - bottom-up approach
+    - sandwich approach
+
+Two different test double types for integration testing
+- Driver
+- Stub
+
+### System testing
+The idea of system testing is to test the application end to end. There are many types of testing for system testing, some of those tests include
+- Functionality testing
+- Installation testing
+- Usability testing
+- Security testing
+- Performance testing
+- Load testing
+- Stress testing
+- Regression testing
+- Storage testing
+- Configuration testing: A given system could be running in the cloud, on local computer, remote servers, ect. This testing it to test the different types of configuration.
+- Compatibility testing
+- Reliability testing: check new versions of code work with old versions.
+- Recovery testing
+- Procedure testing
+
+### Acceptance testing
+This portion of testing is working the the actual end users. Different level of testing here includes
+- Alpha testing
+- Beta testing
+- Contract testing
+- Regulation testing
+- Operational testing
+  
 
 ## Code review 
 Code review is a way to have other developers look at your code for verification. Some facets for what other developers will be looking for include 

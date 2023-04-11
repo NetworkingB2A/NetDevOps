@@ -42,18 +42,24 @@ Notes about serverless:
   - Vendor lock-in
 
 ## DevOps
+What is DevOps?
+A compound of development (Dev) and Operations (Ops), DevOps is the union of people, process, and technology to continually provide value to customers.
 
-DevOps has five guiding principles
+
+DevOps guiding principles
 - Culture
   - For DevOps to work, organizational culture must change. 
   - This is the most important and more difficult part of DevOps
 - Automation
+  - Everything that can be automated should be automated. 
 - Lean
   - Reducing wasted efforts and streamlining the process.
 - Measurement
   - If you never measure your results, you will never know what to improve or if you are improving.
 - Sharing
   - Feedback and sharing is key to reach the ultimate goal.
+- Holistic
+  - The DevOps process needs to be treated as a whole process, rather than just a couple of smaller tasks.
 
 ### Putting devops into practice. The Three ways
 First way: Systems and flow  
@@ -86,3 +92,24 @@ The stages for implementing DevOps generally follows these steps:
 - Continuous deployment
   - This stage relies on continuous integration and continuous delivery to automatically replace code into production as soon as it is ready.
 
+
+### Components of a CI/CD Pipeline
+CI/CD - Continuous integration and continuous deployment
+CD/CD is the idea of developing, testing and deploying software in small batches. Your feature will be in a usable and being used will be much quicker when deploying in a CI/CD mindset.
+
+What is continuous deployment vs continuous delivery?
+- Delivery means to deploy all of your code changes to a testing and/or production environment after the build stage. You can schedule the config upgrade when ever.
+- Deployment mean that there is no human intervention. when the pipeline is passed the config change is pushed out immediately. No more release day.
+
+A CI/CD pipeline consists of:
+- Source code repository
+- Build stage ( source code, dependencies, and static code analytics)
+- Test stage ( unit and integration tests, end-to-end tests)
+- Deploy stage ( packaging, staging and production)
+
+A Gitlab pipeline consists of:
+- Commit: a change in the code
+- Job: Runner instructions
+- Pipeline: a group of jobs divided into different stages
+- Runner: A server or agent that implements each hob separately, which can spin up or down if needed.
+- Stages: Parts of a job(for exmaple, build or tests). Multiple jobs inside the same stage are executed in parallel.

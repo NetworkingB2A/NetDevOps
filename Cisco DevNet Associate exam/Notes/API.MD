@@ -127,11 +127,39 @@ Common response codes
 | 405 | Method not allowed |
 | 408 | Request timed out | 
 | 414 | request URI too large |
+| 429 | Too many requests HTTP response headers | 
 | 500 | Internal server error |
 | 501 | Method not implemented |
 | 502 | Bad gateway | 
 | 503 | Service unavailable |
 | 504 | Gateway timeout | 
+
+### HTTP Headers
+There are four distinct types of headers
+- General Headers
+  - Headers from this category are not specific to any particular kind of message.
+  - They are primarily used to communicate information about the message itself and how to process it.
+- Request Headers
+  - These headers carry information about the resource to be fetched.
+  - They also contain the information about the client.
+  - Examples
+    - Accept-Charset
+    - Accept-Datetime
+    - Accept-Encoding
+    - Accept-Language
+- Response Headers
+  - These headers hold additional information about the response and the server providing it.
+- Entity Headers
+  - These headers contain information about the response body.
+
+### HTTPS authentication types   
+- Anonymous (no authentication)
+- Basic (Base64-encoded)
+- Bearer (HTTP implementation of custom token authentication)
+- Digest (MD5-hashed credentials)
+- Mutual (two-way authentication)
+- Other uncommon schemes
+
 
 ### Webhooks
 Webhooks are user-defined HTTP callbacks. Also called reverse APIs. When you want an event to happen based on a trigger that occurs.  
@@ -199,15 +227,22 @@ Some tips for rate limiting on the client side.
 - Query with special filters to avoid re-polling unmodified data.
 - Download data during off-peak hours.
 
+API calls can be throttled with:
+- HTTP headers: headers like X-RateLimit-Limit and X-RateLimit-Remaining are used to keep track of the numbers of used and remaining API calls for a period of time.
+- Message queues: Incoming API calls can be put into a queue, which makes sure the API endpoint itself is not overloaded.
+- Software libraries and algorithms: Many libraraies and algorithms have been created for teh purpose of rate limiting, such as leaky bucket, fixed windows, and sliding log.
+- Reverse proxies and load balancers: LB and RPs (like NGINX) features rate limiting as a built-in feature.
+
 ## Simple Object Access Protocol (SOAP)
 - SOAP is used to access web services.
-- SOAP can use SMTP or HTTP as a transport protocol. SOAP is used to to exchange data between applications that were build on different programming languages.
-- Using HTTP means that you wont need to open extra firewall ports.
+- Features can be added without major updates to the implementation.
+- SOAP can use SMTP, TCP or HTTP as a transport protocol. SOAP is used to to exchange data between applications that were build on different programming languages.
+  - Using HTTP means that you wont need to open extra firewall ports.
 - SOAP is based on XML.
 - SOAP messages typically consist of four main components
   - Envelope
     - The envelope encloses the XML data and identifies it as a SOAP message.
-  - Header
+  - Header (optional)
   - Body
   - Fault (optional)
     - SOAP Fault Options
@@ -223,9 +258,27 @@ Some tips for rate limiting on the client side.
 
 ## Remote-Procedure Calls (RPCs)
 RPC is used to execute code or a program on a remote node in a network.
-
+The client sends a call to the server, and then waits for the server to return a reply message. once the reply message is received, the results of the procedures are extracted and teh client execution is resumed. There is no limitation on concurrency, so RPC calls can also be executed asynchronously.  
+Some notes to remember:
+- Error handling should be handled on the remote server.
+- Global variables and side effects are sometimes unknown or hidden to the client.
+- You will see a performance hit of the remote procedures compared to the local procedures.
+- Authentication should be used, because you may be unsure of the transport security.
+Some different types of RPC are:
+- JSON-RPC
+- XML-RPC
 
 ## Random notes
-One important bit of info to keep in mind, when using API testing them in code is very important. you don't want to troubleshoot code you created for a long time. testing you API calls will be very important troubleshooting step.
+One important bit of info to keep in mind, when using API testing them in code is very important. you don't want to troubleshoot code you created for a long time. testing you API calls will be very important troubleshooting step.  
+SOAP vs RESTApi
+- SOAP request you have to send a lot of data just for a simple get like message. The body in SOAP is large.
+- SOAP can only use XML
+- SOAP is chatty, and will send you a lot of data back.
+- SOAP does not have a standardized interaction model.
+- All queries are sent with POST queries. 
+- REST uses HTTP methods natively (GET, POST, PUT, PATCH and DELETE)
+- REST has easier to manage security for the API calls
+- REST can use data streaming, will can make your program more efficient. 
+NEVER put sensitive data in the query string. only ever put this data in the headers for an RESTApi calls.
 
 

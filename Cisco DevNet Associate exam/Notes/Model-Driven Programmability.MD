@@ -6,8 +6,17 @@ gRPC is an open-source project started by Google to provide a modern remote proc
 NETCONF = Network Configuration Protocol
 NETCONF is just the connection and configuration protocol to a network device. If you need to send actual data, this is where YANG (Yet another next generation) steps in. With YANG you have a way to format your device data that you can push to your end devices.  
 NETCONF uses SSH as its communication layer. It uses a client server model.  
-Messages send with NETCONf use RPCs.
-- When you stat an Message with a manager and an agent, The manager will send a RPC message with a unique ID. That unique ID will need to be in the REC-Reply in order for the manager to know that the agent and manager are talking about the same task.
+NETCONF consists of four layers:
+- Content layer
+  - Actual config and notification data.
+- Operations layer
+  - defines a set of base protocol operations to retrieve and edit the config data
+- Message layer
+  - Provides a mechanism for encoding remote procedure calls.
+- Secure transport layer
+  - Ensures a secure and reliable transport between a client and a server.
+Messages sent with NETCONf use RPCs.
+- When you state an Message with a manager and an agent, The manager will send a RPC message with a unique ID. That unique ID will need to be in the REC-Reply in order for the manager to know that the agent and manager are talking about the same task.
 - Here is a copy of the netconf protocol stack
 ![Netconf Protocol Stack](../../images/netconf-protocol-stack.png)
 - Here is a sample of the NETCONf communications
