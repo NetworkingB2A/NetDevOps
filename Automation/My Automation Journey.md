@@ -30,10 +30,11 @@ Some wins for me
   - it would create the config of a new device based on the yaml file you created.
   - It would also reach out to a device and build a yaml file based on was on that device. then you can go and look over that yaml file and see if its correct.
   - This one was a huge win, in the fact that as we change our templates, you dont have to update your version of the template that you saved to your computer.
-- I haven't contibuited to much open source projects, but I have found two bugs in their software. I am not saying this to say how great I am. I am saying this because these two case I really felt that accomplished something that i didn't think i could. These made my feel super good about myself after having so many what i felt like to be failures in the past.
+- I haven't contributed to much open source projects, but I have found two bugs in their software. I am not saying this to say how great I am. I am saying this because these two case I really felt that accomplished something that i didn't think i could. These made my feel super good about myself after having so many what i felt like to be failures in the past.
   - one was with a nautobot plug in,
   - other was a cisco dnac ansible plugin.
-- Recent one was after failing many many many times, I wrote my first test case for check to see if any image is on a device.
+- Recent one was after failing many many many times, I wrote my first pyATS test case for check to see if any image is on a device.
+- Writing my first Netbox plugin
 
 
 Some important learnings for me
@@ -48,4 +49,4 @@ Some important learnings for me
 - Don't spend too much time on low hanging fruit. low hanging fruit is important, but in my experience spending all the time on the low hanging fruit, I feel like I have created a lot of script that only i can run.
 - Document as you go. when writing code continue to write down how to use the code, why you did things a certain way.
 - Don't watch code habits that only noobs do, type of videos. I think that is one thing that hurt me in the long run.
-- 
+- Write down basic code examples somewhere you can find it very easily, so you can reference it when you forget how to do those basic takes.
