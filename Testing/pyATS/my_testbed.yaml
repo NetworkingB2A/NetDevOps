@@ -1,0 +1,38 @@
+testbed:
+  name: my_testbed
+  credentials:
+    default:
+      password: '%ENC{w5PDosOUw5fDog==}'
+      username: cisco
+    enable:
+      password: '%ENC{w5PDosOUw5fDog==}'
+devices:
+  router10:
+    connections:
+      cli:
+        ip: 192.168.2.10
+        protocol: ssh
+    os: ios
+    type: ios
+  router17:
+    connections:
+      cli:
+        ip: 192.168.2.17
+        protocol: ssh
+    os: ios
+    type: ios
+topology:
+  router10:
+    interfaces:
+      loopback0:
+        ipv4: 10.1.1.10/32
+        link: n1
+        type: loopback
+  router17:
+    interfaces:
+      loopback0:
+        ipv4: 10.1.1.17/32
+        link: n2
+        type: loopback
+
+#print(testbed.devices["router10"].interfaces['loopback0'].ipv4

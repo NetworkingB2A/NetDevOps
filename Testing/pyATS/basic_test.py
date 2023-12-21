@@ -1,37 +1,33 @@
-from genie.testbed import load
-testbed = load('working-tb.yaml')
-device = testbed.devices['nx-osv-1']
-device.connect()
-output = device.execute('show version')
-print(output)
-'7.3' in output
-if '7.3' in output:
-    print("'7.3' was found in the output!")
-parsed = device.parse('show version')
-parsed
-from pprint import pprint
-pprint(parsed)
-parsed2 = device.parse('show vrf')
+# Example
+# -------
+#
+#   very simple aetest testscript
 
-pprint(parsed2)
+from pyats import aetest
+from some_lib import configure_interface
 
-parsed2['vrfs']['default']['vrf_id']
-parsed2['vrfs']['default']['vrf_state']
+class CommonSetup(aetest.CommonSetup):
+    @aetest.subsection
+    def connect_to_device(self, testbed):
+        # connect to testbed devices
+        for device in testbed:
+            device.connect()
 
-for vrf in parsed2['vrfs']:
-    vrf_id = parsed2['vrfs'][vrf]['vrf_id']
-    vrf_state = parsed2['vrfs'][vrf]['vrf_state']
-    print('Vrf {vrf} is {state}'.format(vrf=vrf_id, state=vrf_state))
-configuration = '''\
-interface ethernet2/1
-shutdown'''
+class SimpleTestcase(aetest.Testcase):
+    @aetest.test
+    def simple_test(self, testbed):
+        # configure each device interface
+        for device in testbed:
+            for intf in device:
+                configure_interface(intf)
 
-output = device.configure(configuration)
-configuration = [
-    'interface ethernet2/1',
-    'shutdown'
-]
+class CommonCleanup(aetest.CommonCleanup):
+    @aetest.subsection
+    def disconnect_from_devices(self, testbed):
+        # disconnect_all
+        for device in testbed:
+            device.disconnect()
 
-output = device.configure(configuration)
-output = device.learn('interface')
-pprint(output.info)
+# for running as its own executable
+if __name__ == '__main__':
+    aetest.main()
