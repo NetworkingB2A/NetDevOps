@@ -1,0 +1,1 @@
+you will see threading benefits when your tasks are IO bound, if your tasks are cpu bound, you will likely not see many benefits from threading. If you are CPU bound you may want to look at multi-processing and run the task in parallel instead. 
