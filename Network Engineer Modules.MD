@@ -43,28 +43,22 @@ csv
 ### Unit testing
 
 pyats
-
 unittest
+pytest
 
 
 ### Operating system
 
 sys: This module allows you to interact with python interpreter and manipulate and view values.
-
 os: This module gives you access to the underlying operating system environment and file system. 
 
 
 ### Other
 
 ipaddress module
-
 pprint
-
 pysnmp
-
-
 datetime
-
 time
 
 

@@ -72,9 +72,9 @@ CI/CD pipeline is a tool of the actions
 Events
 - This is the trigger to start a workflow
 Jobs
-- Jobs consite of steps and actions
+- Jobs consist of steps and actions
 Runners
-- This is a container enviroment that will run our code 
+- This is a container environment that will run our code 
 - Default github will run this for you, but you have the option to host your own if you would like
 Steps
 - Steps are a list of actions that must be done

@@ -1,0 +1,214 @@
+{
+    "network_topology": {
+      "name": "Enterprise Network",
+      "devices": {
+        "routers": [
+          {
+            "name": "Router1",
+            "interfaces": [
+              {
+                "name": "Gig0/0",
+                "ip_address": "192.168.1.1",
+                "subnet_mask": "255.255.255.0"
+              },
+              {
+                "name": "Gig0/1",
+                "ip_address": "10.0.0.1",
+                "subnet_mask": "255.255.255.0"
+              }
+            ],
+            "routing_protocols": [
+              {
+                "protocol": "OSPF",
+                "area": 0
+              }
+            ]
+          },
+          {
+            "name": "Router2",
+            "interfaces": [
+              {
+                "name": "Gig0/0",
+                "ip_address": "192.168.2.1",
+                "subnet_mask": "255.255.255.0"
+              },
+              {
+                "name": "Gig0/1",
+                "ip_address": "10.0.0.2",
+                "subnet_mask": "255.255.255.0"
+              }
+            ],
+            "routing_protocols": [
+              {
+                "protocol": "OSPF",
+                "area": 0
+              }
+            ]
+          },
+          {
+            "name": "Router3",
+            "interfaces": [
+              {
+                "name": "Gig0/0",
+                "ip_address": "172.16.1.1",
+                "subnet_mask": "255.255.255.0"
+              },
+              {
+                "name": "Gig0/1",
+                "ip_address": "10.1.0.1",
+                "subnet_mask": "255.255.255.0"
+              }
+            ],
+            "routing_protocols": [
+              {
+                "protocol": "BGP",
+                "as_number": 65001
+              }
+            ]
+          },
+          {
+            "name": "Router4",
+            "interfaces": [
+              {
+                "name": "Gig0/0",
+                "ip_address": "172.16.2.1",
+                "subnet_mask": "255.255.255.0"
+              },
+              {
+                "name": "Gig0/1",
+                "ip_address": "10.1.0.2",
+                "subnet_mask": "255.255.255.0"
+              }
+            ],
+            "routing_protocols": [
+              {
+                "protocol": "BGP",
+                "as_number": 65002
+              }
+            ]
+          }
+        ],
+        "switches": [
+          {
+            "name": "Switch1",
+            "interfaces": [
+              {
+                "name": "FastEthernet0/1",
+                "vlan": 10
+              },
+              {
+                "name": "FastEthernet0/2",
+                "vlan": 20
+              },
+              {
+                "name": "FastEthernet0/3",
+                "vlan": 30
+              }
+            ]
+          },
+          {
+            "name": "Switch2",
+            "interfaces": [
+              {
+                "name": "FastEthernet0/1",
+                "vlan": 10
+              },
+              {
+                "name": "FastEthernet0/2",
+                "vlan": 20
+              },
+              {
+                "name": "FastEthernet0/3",
+                "vlan": 30
+              }
+            ]
+          },
+          {
+            "name": "Switch3",
+            "interfaces": [
+              {
+                "name": "FastEthernet0/1",
+                "vlan": 40
+              },
+              {
+                "name": "FastEthernet0/2",
+                "vlan": 50
+              },
+              {
+                "name": "FastEthernet0/3",
+                "vlan": 60
+              }
+            ]
+          },
+          {
+            "name": "Switch4",
+            "interfaces": [
+              {
+                "name": "FastEthernet0/1",
+                "vlan": 40
+              },
+              {
+                "name": "FastEthernet0/2",
+                "vlan": 50
+              },
+              {
+                "name": "FastEthernet0/3",
+                "vlan": 60
+              }
+            ]
+          }
+        ]
+      },
+      "links": [
+        {
+          "source_device": "Router1",
+          "source_interface": "Gig0/1",
+          "destination_device": "Router2",
+          "destination_interface": "Gig0/1"
+        },
+        {
+          "source_device": "Router1",
+          "source_interface": "Gig0/0",
+          "destination_device": "Switch1",
+          "destination_interface": "FastEthernet0/1"
+        },
+        {
+          "source_device": "Router2",
+          "source_interface": "Gig0/0",
+          "destination_device": "Switch2",
+          "destination_interface": "FastEthernet0/1"
+        },
+        {
+          "source_device": "Router3",
+          "source_interface": "Gig0/1",
+          "destination_device": "Router4",
+          "destination_interface": "Gig0/1"
+        },
+        {
+          "source_device": "Router3",
+          "source_interface": "Gig0/0",
+          "destination_device": "Switch3",
+          "destination_interface": "FastEthernet0/1"
+        },
+        {
+          "source_device": "Router4",
+          "source_interface": "Gig0/0",
+          "destination_device": "Switch4",
+          "destination_interface": "FastEthernet0/1"
+        },
+        {
+          "source_device": "Switch1",
+          "source_interface": "FastEthernet0/3",
+          "destination_device": "Switch2",
+          "destination_interface": "FastEthernet0/3"
+        },
+        {
+          "source_device": "Switch3",
+          "source_interface": "FastEthernet0/3",
+          "destination_device": "Switch4",
+          "destination_interface": "FastEthernet0/3"
+        }
+      ]
+    }
+  }
+  

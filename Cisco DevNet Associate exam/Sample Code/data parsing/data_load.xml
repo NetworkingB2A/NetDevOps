@@ -1,0 +1,102 @@
+<NetworkTopology name="Enterprise Network">
+    <Devices>
+        <Router name="Router1">
+            <Interfaces>
+                <Interface name="Gig0/0" ip_address="192.168.1.1" subnet_mask="255.255.255.0" />
+                <Interface name="Gig0/1" ip_address="10.0.0.1" subnet_mask="255.255.255.0" />
+            </Interfaces>
+            <RoutingProtocols>
+                <Protocol name="OSPF" area="0" />
+            </RoutingProtocols>
+        </Router>
+        <Router name="Router2">
+            <Interfaces>
+                <Interface name="Gig0/0" ip_address="192.168.2.1" subnet_mask="255.255.255.0" />
+                <Interface name="Gig0/1" ip_address="10.0.0.2" subnet_mask="255.255.255.0" />
+            </Interfaces>
+            <RoutingProtocols>
+                <Protocol name="OSPF" area="0" />
+            </RoutingProtocols>
+        </Router>
+        <Router name="Router3">
+            <Interfaces>
+                <Interface name="Gig0/0" ip_address="172.16.1.1" subnet_mask="255.255.255.0" />
+                <Interface name="Gig0/1" ip_address="10.1.0.1" subnet_mask="255.255.255.0" />
+            </Interfaces>
+            <RoutingProtocols>
+                <Protocol name="BGP" as_number="65001" />
+            </RoutingProtocols>
+        </Router>
+        <Router name="Router4">
+            <Interfaces>
+                <Interface name="Gig0/0" ip_address="172.16.2.1" subnet_mask="255.255.255.0" />
+                <Interface name="Gig0/1" ip_address="10.1.0.2" subnet_mask="255.255.255.0" />
+            </Interfaces>
+            <RoutingProtocols>
+                <Protocol name="BGP" as_number="65002" />
+            </RoutingProtocols>
+        </Router>
+        <Switch name="Switch1">
+            <Interfaces>
+                <Interface name="FastEthernet0/1" vlan="10" />
+                <Interface name="FastEthernet0/2" vlan="20" />
+                <Interface name="FastEthernet0/3" vlan="30" />
+            </Interfaces>
+        </Switch>
+        <Switch name="Switch2">
+            <Interfaces>
+                <Interface name="FastEthernet0/1" vlan="10" />
+                <Interface name="FastEthernet0/2" vlan="20" />
+                <Interface name="FastEthernet0/3" vlan="30" />
+            </Interfaces>
+        </Switch>
+        <Switch name="Switch3">
+            <Interfaces>
+                <Interface name="FastEthernet0/1" vlan="40" />
+                <Interface name="FastEthernet0/2" vlan="50" />
+                <Interface name="FastEthernet0/3" vlan="60" />
+            </Interfaces>
+        </Switch>
+        <Switch name="Switch4">
+            <Interfaces>
+                <Interface name="FastEthernet0/1" vlan="40" />
+                <Interface name="FastEthernet0/2" vlan="50" />
+                <Interface name="FastEthernet0/3" vlan="60" />
+            </Interfaces>
+        </Switch>
+    </Devices>
+    <Links>
+        <Link>
+            <Source device="Router1" interface="Gig0/1" />
+            <Destination device="Router2" interface="Gig0/1" />
+        </Link>
+        <Link>
+            <Source device="Router1" interface="Gig0/0" />
+            <Destination device="Switch1" interface="FastEthernet0/1" />
+        </Link>
+        <Link>
+            <Source device="Router2" interface="Gig0/0" />
+            <Destination device="Switch2" interface="FastEthernet0/1" />
+        </Link>
+        <Link>
+            <Source device="Router3" interface="Gig0/1" />
+            <Destination device="Router4" interface="Gig0/1" />
+        </Link>
+        <Link>
+            <Source device="Router3" interface="Gig0/0" />
+            <Destination device="Switch3" interface="FastEthernet0/1" />
+        </Link>
+        <Link>
+            <Source device="Router4" interface="Gig0/0" />
+            <Destination device="Switch4" interface="FastEthernet0/1" />
+        </Link>
+        <Link>
+            <Source device="Switch1" interface="FastEthernet0/3" />
+            <Destination device="Switch2" interface="FastEthernet0/3" />
+        </Link>
+        <Link>
+            <Source device="Switch3" interface="FastEthernet0/3" />
+            <Destination device="Switch4" interface="FastEthernet0/3" />
+        </Link>
+    </Links>
+</NetworkTopology>

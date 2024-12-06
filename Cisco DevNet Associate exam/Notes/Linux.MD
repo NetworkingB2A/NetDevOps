@@ -19,6 +19,12 @@ Quick linux commands
 | rm {file name} | Remove | This will remove a file or a folder. | -r (removes directories and their contents), -f (this will force removal of files and never prompt)
 | touch {File name} | Touch | This will create a file or update the modified date of a file.
 
+## Directory
+
+![Directory Permissions](../../images/Directory%20Permissions.png)
+![Directory Structure](../../images/Directory%20Structure.png)
+
+
 ## Environment Variables
 What is an environment variable?
 - Its really just a variable that you set for you OS. This can be set for anything. You can setup a folder as a variable, you can set up an API key as a variable, you can set up a number, ect. 

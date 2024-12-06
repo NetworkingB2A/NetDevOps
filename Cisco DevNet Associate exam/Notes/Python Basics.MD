@@ -130,10 +130,10 @@ Logging will allow you to capture additional data about the running of your code
 If you default to the root logging and you decide to import a different module that also has a root logger, the root logger of the imported class will actually do the logging and the logger you have in your main code down below will not be called, because you already have a root logger called.
 Example of best practice code
 
-using the \_\_name__ will pass the name of the module you are running into the logger, this will replace the word root in the logger.
-<code>
+using the ```__name__``` will pass the name of the module you are running into the logger, this will replace the word root in the logger.
+```python
 import logging
-logger = logging.getLogger(\_\_name__)
+logger = logging.getLogger(__name__)
 
 #You would use this next part if you want to customize your logger a bit more. This will allow you to change the root logger info.
 logger.setLevel(logging.INFO)
@@ -143,7 +143,7 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
-</code>
+```
 You can also do a logging.exception inside a try/except block to log the traceback errors.
 
 If you want this logging to show up on your console window you can use a stream Handler.

@@ -6,7 +6,7 @@ Different data types
 
 Some Key terms to understand for security:
 - Asset: An asset is something you're trying to protect.
-- Threat: Anything you are trying to project against is known aas a threat. 
+- Threat: Anything you are trying to project against is known as a threat. 
 - Vulnerability: A vulnerability is a weakness or gap in protection efforts.
 - Risk: Risk is the intersection of assets, threats, and vulnerabilities
 

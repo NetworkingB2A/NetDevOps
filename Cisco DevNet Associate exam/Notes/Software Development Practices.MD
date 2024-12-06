@@ -277,9 +277,15 @@ Some good practices for code review
 
 
 # Other Notes
+What is a class?
+- A class is meant to repersent real world objects and their behaviors.
+- A class is like a blueprint of what a object should look like or what it can do.
+- Parameters or attributes are the data an object can hold.
+- Methods are the actions a object can perform.
 Cohesion and loosely coupled 
 Here are some design guidelines to consider:
 - Acyclic dependencies principle
+  - Dependencies should only flow in one direction. If module A depends on module B. Module B should not depend on module A.
 - Stable dependencies principle
 - Single responsibility principle
 

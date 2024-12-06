@@ -33,7 +33,7 @@ There are four main functions you will use when working with Python and JSON.
 XML works hand and hand in HTML.  
 XML has a tree structure. with the root element being at the very top.  
 All XML works with tags. All data resides in these tags <>, </>.  
-Understanding XML is important as some protocols/standards work exclusively with XML. Without understanding XML NETCONF with YANG will be difficult to use.  
+Understanding XML is important as some protocols/standards work exclusively with XML. Without understanding XML, NETCONF with YANG will be difficult to use.  
 XML is one of the more difficult markup languages to learn.  
 You can use xmltodict in Python to help you work with the XML data.  
 You can also use the XML unparse function to make the data easier to read.

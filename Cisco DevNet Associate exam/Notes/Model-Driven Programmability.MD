@@ -28,7 +28,11 @@ Messages sent with NETCONf use RPCs.
 6. Retrieve RPC-Reply (Manager < Agent)
 7. Process data
 
-
+### Random note need to put somewhere
+When running netconf communications.
+your computer or a management systems is called the Manager.
+The device that is receiving your requests is called the NETCONF agent.
+computer(manager) <<-->> Network device(NETCONF Agent)
 
 
 
@@ -51,6 +55,14 @@ The NETCONF \<edit-config> operations supports several attributes
 - create
 - delete
 
+There are three types of operational data stores.
+- Running
+  - There can only be one running data store on a device
+- Candidate
+  - This type of data store acts as a workspace for creating and changing configuration data. Once a \<commit> is completed, the candidate config is promoted to running data store
+- Startup
+  - This data store is loaded at start up of a device. An explicit \<copy-config> operation is needed to promote the running data store to the startup data store.
+
 ### Python with NETCONF
 - When using netconf inside of python you need to use ncclient. You will need to import manger module. This module will be used to connect to the device.
 - You will often need to find out what capabilities the agent can support. There are a few different ways to accomplish this. One way is by pulling the data from the agent itself. The problem here is that the data you get back might be hard to read. Another option will be to go to the vendors website and read about it. This is my preferred method.
@@ -59,7 +71,7 @@ The NETCONF \<edit-config> operations supports several attributes
 
 ## YANG
 YANG = Yet another next generation
-YANG is a standardized data modeling language used to model configuration and state data. YANG is used to NETCONF. YANG is expressed in XML.
+YANG is a standardized data modeling language used to model configuration and state data. YANG is used by NETCONF. YANG is expressed in XML.
 A native YANG model is created be a vendor for their equipment. often times one native model is not compatible with other vendors hardware/software.
 A YANG module contains three types of statements:
 - Module header statements describe the module and give information about it.
@@ -77,6 +89,7 @@ YANG defines four types of nodes for data modeling:
   - Container is used to group related nodes within a subtree
   - Example would be stats about an interface. there are many different stats that you can grab from that one container.
 - List nodes
+  - Is a list of nodes, with their data.
 
 Components that go into building the YANG data model
 - Header information
